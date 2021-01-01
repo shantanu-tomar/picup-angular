@@ -23,7 +23,8 @@ export class AppComponent implements OnInit{
   
   messages = [];
   toast: object;
-  
+  navUserDropdown: boolean = false;
+
   username: string;
 
   constructor(
@@ -48,13 +49,9 @@ export class AppComponent implements OnInit{
     );
   }
 
-  setUser = () => {
-    this.username = JSON.parse(localStorage.getItem("username"));
-  }
-
   setVars = () => {
     if (this.auth.isAuthenticated()){
-      this.setUser();
+      this.username = localStorage.getItem("username");
       this.isAuthenticated = true;
     }
     
@@ -121,5 +118,9 @@ export class AppComponent implements OnInit{
         sub.complete();
       })
     );
+  }
+
+  elementToggleClick = (elementParam: string) => {
+    this[`${elementParam}`] = !this[`${elementParam}`];
   }
 }

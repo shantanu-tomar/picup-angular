@@ -27,4 +27,24 @@ export class SharedService {
   isOnline = () => {
     return !this.app.offline;
   }
+
+  refreshAppComponent = () => {
+    this.app.setVars();
+  }
+
+  displayErrorMsg = (error) => {
+    Object.values(error.error).forEach((value) => {
+      if (Array.isArray(value)) {
+        value.forEach((msg) => {
+          this.setMsg('danger', msg, null);
+        })
+      }
+      else if (typeof(value) == "string") {
+        this.setMsg('danger', value, null);
+      }
+      else {
+        this.setMsg('danger', "An error occurred.", null);
+      }
+    });
+  }
 }

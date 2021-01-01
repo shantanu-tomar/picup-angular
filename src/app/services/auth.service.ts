@@ -9,7 +9,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  private message: string;
   baseUrl = environment.baseUrl +'/api';
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -21,9 +20,9 @@ export class AuthService {
   						private http: HttpClient) { }
 
   
-  authenticate(email: string, pass: string): Observable<any> {
+  authenticate(username: string, pass: string): Observable<any> {
     return this.http.post(this.baseUrl + '/login/',
-	    {"email": email, "password": pass }, {headers: this.httpHeaders});
+	    {"username": username, "password": pass }, {headers: this.httpHeaders});
 	 }
 
 

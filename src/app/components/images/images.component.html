@@ -1,0 +1,23 @@
+<div id="upload-container" class="container" style="min-height: 100vh">
+	<div class="col-lg-6 col-sm-12" style="margin:auto">
+		<form style="margin-top:100px; " enctype="multipart/form-data" [formGroup]="form" (submit)="uploadImage()" ngNativeValidate>
+			<fieldset class="form-group">
+				<h5 class="border-bottom mb-4">
+					Upload Image
+				</h5>
+
+				<div id="div_id_image" class="form-group">
+					<label for="id_image" class=" requiredField">
+            Choose image
+          </label>
+
+          <input type="file" name="imageSelect" accept="image/*" class="clearablefileinput form-control" id="id_image" (change)="fileUpload($event)" required />
+        </div>
+
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-outline-success" type="submit">Upload</button>
+			</div>
+		</form>
+	</div>
+</div>
