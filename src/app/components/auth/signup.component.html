@@ -1,0 +1,30 @@
+<div style="background-image: linear-gradient(#00163F, rgba(255, 255, 0, 0.1)); min-height: 100vh;" class="p-2">
+  <div class="col-12 col-md-6" style="margin: auto;">
+    <form ngNativeValidate #form="ngForm" (ngSubmit)="signup(form)" class="mt-4 container card p-3 col-md-6 col-12">
+      <h5 class="mb-3">Sign Up</h5>
+      
+      <div class="form-group">
+        <label>Username</label><span class="required text-danger">*</span>
+        <input class="form-control" name="username" type="text" 
+              [(ngModel)]="username" required />
+      </div>
+      <div class="form-group">
+        <label>Password</label><span class="required text-danger">*</span>
+        <input class="form-control" type="password" name="password"
+              [(ngModel)]="password" required />
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label><span class="required text-danger">*</span>
+        <input class="form-control" type="password" name="password2"
+              [(ngModel)]="password2" required />
+
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary m-1" type="submit" [disabled]="password != password2">Sign Up</button>
+      </div>
+
+      Or, <a class="text-primary" routerLink="/login/">Login</a>
+      
+    </form>
+  </div>
+</div>

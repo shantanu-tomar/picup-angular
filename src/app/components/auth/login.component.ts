@@ -14,7 +14,7 @@ import {Title} from "@angular/platform-browser";
 
 })
 export class LoginComponent implements OnInit {
-	public email: string;
+	public username: string;
   public password: string;
   public userAuthToken: string;
   nextRoute = '/';
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
   }
 
   demoLogin = () => {
-    this.email = 'sherlock@bakerstreet.com';
+    this.username = 'sherlock';
     this.password = 'demo';
 
     this.performAuthentication();
@@ -64,26 +64,19 @@ export class LoginComponent implements OnInit {
   }
 
   performAuthentication = () => {
-    this.auth.authenticate(this.email, this.password).subscribe(
+    this.auth.authenticate(this.username, this.password).subscribe(
 
       response => {
         document.getElementById('spinnerOverlay').style.display = 'none';
         localStorage.setItem("token", response.token);
+        localStorage.setItem("username", response.username);
         this.router.navigate([`/${this.nextRoute}`]);
+        this.shared.refreshAppComponent();
       },
 
       error => { 
         console.log(error);
-        if (error.error.non_field_errors) {
-          for (let e of error.error.non_field_errors){
-            this.shared.setMsg(
-            'danger', e, null);
-          }
-        }
-        else {
-          this.shared.setMsg(
-          'danger', "An error occured. Please retry.", null);
-        }
+        this.shared.displayErrorMsg(error);
         document.getElementById('spinnerOverlay').style.display = 'none';
       }
     )

@@ -40,7 +40,7 @@ export class ApiService {
 
   register(data): Observable<any> {
     return this.http.post(
-      this.baseUrl + '/register/', data, {headers: this.httpHeaders});
+      this.baseUrl + '/signup/', data, {headers: this.httpHeaders});
   }
 
   uploadImage(formData): Observable<any>{
