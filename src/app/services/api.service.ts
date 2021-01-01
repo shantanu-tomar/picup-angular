@@ -34,16 +34,12 @@ export class ApiService {
       return '';
   }
 
-  getHome(): Observable<any> {
-    return this.http.get(this.baseUrl, {headers: this.httpHeaders});
-  }
-
   register(data): Observable<any> {
     return this.http.post(
-      this.baseUrl + '/signup/', data, {headers: this.httpHeaders});
+      this.baseUrl + '/signup', data, {headers: this.httpHeaders});
   }
 
   uploadImage(formData): Observable<any>{
-    return this.http.post(this.baseUrl +'/upload/', formData);
+    return this.http.post(this.baseUrl +'/upload', formData);
   }
 }
