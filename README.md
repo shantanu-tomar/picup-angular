@@ -1,4 +1,5 @@
 # PicupAngular
+Frontend for PicUp website
 
 Django Backend: https://github.com/shantanu-tomar/picup
 
