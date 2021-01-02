@@ -21,7 +21,7 @@ export class AuthService {
 
   
   authenticate(username: string, pass: string): Observable<any> {
-    return this.http.post(this.baseUrl + '/login',
+    return this.http.post(this.baseUrl + '/login/',
 	    {"username": username, "password": pass }, {headers: this.httpHeaders});
 	 }
 

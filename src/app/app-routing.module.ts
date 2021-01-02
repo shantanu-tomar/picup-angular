@@ -4,6 +4,7 @@ import { LoginComponent } from './components/auth/login.component';
 import { SignupComponent } from './components/auth/signup.component';
 import { ImagesComponent } from './components/images/images.component';
 import {ImageDetailComponent} from './components/images/image-detail.component';
+import {ImageCaptureComponent} from './components/images/image-capture.component';
 
 import { AuthGuard } from 'src/app/services/auth-guard.service';
 //import { ImageDetailGuard } from 'src/app/services/image-detail-guard.service';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: '', component: ImagesComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'capture', component: ImageCaptureComponent, canActivate: [AuthGuard] },
   { path: 'detail', component: ImageDetailComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: "" },
 ];

@@ -19,5 +19,13 @@
 				<button class="btn btn-outline-success" type="submit">Upload</button>
 			</div>
 		</form>
+
+		<div *ngIf='isMobile'>
+			Or, <br/>
+			<a routerLink='/capture' class="btn btn-outline-primary">
+				<i class="fa fa-camera mr-2" aria-hidden="true"></i>
+				Capture
+			</a>
+		</div>
 	</div>
 </div>

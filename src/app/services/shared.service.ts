@@ -47,4 +47,11 @@ export class SharedService {
       }
     });
   }
+
+  isMobileDevice = () => {
+    if( /Android|webOS|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      return true;
+    }
+    return false;
+  }
 }
