@@ -14,6 +14,7 @@ import { SharedService } from "./services/shared.service";
 import { ImagesComponent } from './components/images/images.component';
 import { ImageDetailComponent } from './components/images/image-detail.component';
 import { ImageDetailGuard } from 'src/app/services/image-detail-guard.service';
+import {ImageCaptureComponent} from './components/images/image-capture.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ImageDetailGuard } from 'src/app/services/image-detail-guard.service';
     LoginComponent,
     ImagesComponent,
     ImageDetailComponent,
+    ImageCaptureComponent,
     SignupComponent,
   ],
   imports: [

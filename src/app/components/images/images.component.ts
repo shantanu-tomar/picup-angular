@@ -15,6 +15,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ImagesComponent implements OnInit {
   form: FormGroup;
 
+  isMobile: boolean = false;
+
   constructor(
     private api: ApiService,
     private formBuilder: FormBuilder,
@@ -26,7 +28,9 @@ export class ImagesComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this.form = this.formBuilder.group({imageSelect: ['']});
+    this.isMobile = this.shared.isMobileDevice();
   }
 
   uploadImage = () => {

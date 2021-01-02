@@ -1,0 +1,30 @@
+
+  <div class="col-12 card p-0" style="min-height: 100vh;">
+    <video autoplay="true" id="video" class="card-img-top" width="100%"></video>
+
+    <div class="card-body" *ngIf='streamStarted'>
+      <button class="btn btn-primary mr-3" (click)='captureImage()'>
+        <i class="fa fa-circle mr-2 text-danger" aria-hidden="true"></i>
+        Capture Image
+      </button>
+      <button class="btn btn-warning mt-2 mt-sm-0" (click)="switchCameras()">
+        <i class="fa fa-refresh mr-2 text-primary" aria-hidden="true"></i>
+        Switch camera
+      </button>
+    </div>
+  </div>
+  <br />
+  
+  <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <canvas class="shot" style="width: 100%"></canvas>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" (click)='saveImage()'>Save on device</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Click another</button>
+        </div>
+      </div>
+    </div>
+  </div>
